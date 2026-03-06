@@ -11,19 +11,12 @@ export default {
     hot: true
   },
   build: {
-    outDir: 'dist',
+    outDir: path.resolve(__dirname, 'dist'),
     emptyOutDir: true
   },
   resolve: {
     alias: {
       '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
-    }
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "bootstrap/scss/bootstrap";`
-      }
     }
   }
 }
