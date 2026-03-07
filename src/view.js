@@ -1,5 +1,4 @@
 import { subscribe } from 'valtio/vanilla'
-import { Modal } from 'bootstrap'
 import i18next from 'i18next'
 import elements from './elements'
 import state from './state'
@@ -101,7 +100,7 @@ const createPostItem = (post) => {
   a.rel = 'noopener noreferrer'
   if (state.readPostIds[post.id]) {
     a.classList.add('fw-normal', 'link-secondary')
-  } else {
+    } else {
     a.classList.add('fw-bold')
   }
 

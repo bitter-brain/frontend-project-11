@@ -22,7 +22,7 @@ const parseRSS = (xmlString) => {
   }
 
   const items = [...channel.querySelectorAll('item')]
-  const posts = items.map((item) => ({
+  const posts = items.map(item => ({
     title: item.querySelector('title')?.textContent ?? '',
     link: item.querySelector('link')?.textContent ?? '',
     description: item.querySelector('description')?.textContent ?? '',

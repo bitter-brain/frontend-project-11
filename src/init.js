@@ -21,7 +21,7 @@ const fetchRSS = (url) => {
       }
       return response.json()
     })
-    .then((data) => data.contents)
+    .then(data => data.contents)
 }
 
 const checkFeed = (feedId) => {
@@ -29,8 +29,8 @@ const checkFeed = (feedId) => {
 
   const knownLinks = new Set(
     Object.values(state.posts)
-      .filter((p) => p.feedId === feedId)
-      .map((p) => p.link),
+      .filter(p => p.feedId === feedId)
+      .map(p => p.link),
   )
 
   return fetchRSS(feed.url)
@@ -49,9 +49,8 @@ const checkFeed = (feedId) => {
     .catch(() => {})
   }
 
-
 const pollFeeds = () => {
-  const checks = state.feedIds.map((feedId) => checkFeed(feedId))
+  const checks = state.feedIds.map(feedId => checkFeed(feedId))
 
   Promise.allSettled(checks).then(() => {
     setTimeout(pollFeeds, 5000)
@@ -97,7 +96,7 @@ const init = () => {
           state.form.status = 'failed'
           if (err.name === 'TypeError') {
             state.form.error = 'networkError'
-          } else {
+            } else {
             state.form.error = err.message
           }
         })

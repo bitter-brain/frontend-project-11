@@ -8,15 +8,15 @@ export default {
   root: path.resolve(__dirname, ''),
   server: {
     port: 8080,
-    hot: true
+    hot: true,
   },
   build: {
     outDir: path.resolve(__dirname, 'dist'),
-    emptyOutDir: true
+    emptyOutDir: true,
   },
   resolve: {
     alias: {
       '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
-    }
-  }
+    },
+  },
 }
