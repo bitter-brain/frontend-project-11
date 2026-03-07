@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 import state from './state'
 import createSchema from './validate'
-import '../scss/styles.scss'
+import './scss/styles.scss'
 import 'bootstrap'
 import initView from './view'
 import elements from './elements'
