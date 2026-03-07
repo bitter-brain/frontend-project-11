@@ -99,7 +99,11 @@ const createPostItem = (post) => {
   a.textContent = post.title
   a.target = '_blank'
   a.rel = 'noopener noreferrer'
-  a.classList.add(state.readPostIds[post.id] ? 'fw-normal' : 'fw-bold')
+  if (state.readPostIds[post.id]) {
+    a.classList.add('fw-normal', 'link-secondary')
+  } else {
+    a.classList.add('fw-bold')
+  }
 
   const btn = document.createElement('button')
   btn.type = 'button'
@@ -148,6 +152,7 @@ const renderReadState = (postId) => {
   if (!a) return
   a.classList.toggle('fw-bold', !state.readPostIds[postId])
   a.classList.toggle('fw-normal', !!state.readPostIds[postId])
+  a.classList.toggle('link-secondary', !!state.readPostIds[postId])
 }
 
 const renderModal = () => {
@@ -190,6 +195,7 @@ const initView = () => {
   })
 
   elements.modal.el.addEventListener('hidden.bs.modal', () => {
+    elements.input.focus()
     state.modal.postId = null
   })
 }
