@@ -8,7 +8,6 @@ import elements from './elements'
 import initI18n from './i18n'
 import parseRSS from './parser'
 
-
 const fetchRSS = (url) => {
   const proxyUrl = `https://allorigins.hexlet.app/get?disableCache=true&url=${encodeURIComponent(url)}`
 
@@ -37,7 +36,7 @@ const checkFeed = (feedId) => {
     .then((xmlString) => {
       const { posts } = parseRSS(xmlString)
 
-      const newPosts = posts.filter((post) => !knownLinks.has(post.link))
+      const newPosts = posts.filter(post => !knownLinks.has(post.link))
 
       newPosts.forEach((post) => {
         const postId = nanoid()
@@ -47,7 +46,7 @@ const checkFeed = (feedId) => {
     })
 
     .catch(() => {})
-  }
+}
 
 const pollFeeds = () => {
   const checks = state.feedIds.map(feedId => checkFeed(feedId))
@@ -96,7 +95,8 @@ const init = () => {
           state.form.status = 'failed'
           if (err.name === 'TypeError') {
             state.form.error = 'networkError'
-            } else {
+          }
+          else {
             state.form.error = err.message
           }
         })

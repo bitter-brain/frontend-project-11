@@ -100,7 +100,8 @@ const createPostItem = (post) => {
   a.rel = 'noopener noreferrer'
   if (state.readPostIds[post.id]) {
     a.classList.add('fw-normal', 'link-secondary')
-    } else {
+  }
+  else {
     a.classList.add('fw-bold')
   }
 
